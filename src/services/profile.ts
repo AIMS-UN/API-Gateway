@@ -3,20 +3,14 @@ import { Profile } from '@/schemas/profile'
 
 const profileInstance = getInstance('profile')
 
-export const getUserbyId = async (userId: string): Promise<Profile> => {
-  const data: Profile = await profileInstance.get(`/users/${userId}`)
-
-  // For now, we'll just return a dummy data
-  // const data: Data = { name: `Data from ${msName}`, message: 'Hello World!' }
+export const getProfilesById = async (userId: string): Promise<Profile> => {
+  const { data } = await profileInstance.get(`/profiles/${userId}`)
 
   return await new Promise((resolve) => { resolve(data) })
 }
 
-export const getUsers = async (): Promise<Profile[]> => {
-  const data: Profile[] = await profileInstance.get('/users')
-
-  // For now, we'll just return a dummy data
-  // const data: Data = { name: `Data from ${msName}`, message: 'Hello World!' }
+export const getProfiles = async (): Promise<Profile[]> => {
+  const { data } = await profileInstance.get('/profiles')
 
   return await new Promise((resolve) => { resolve(data) })
 }

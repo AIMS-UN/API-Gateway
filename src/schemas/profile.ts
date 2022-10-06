@@ -1,9 +1,30 @@
 import { Field, ObjectType } from 'type-graphql'
 
 @ObjectType()
+export class Historials {
+  @Field()
+  coursed_credits!: number
+
+  @Field()
+  approved_credits!: number
+
+  @Field()
+  reprobed_credits!: number
+
+  @Field()
+  GPA!: number
+
+  @Field()
+  enrollment_id!: number
+
+  @Field()
+  career!: number
+}
+
+@ObjectType()
 export class Profile {
   @Field()
-  id_card!: string
+  user_id!: string
 
   @Field()
   name!: string
@@ -23,27 +44,6 @@ export class Profile {
   @Field()
   address!: string
 
-  @Field()
-  historials!: Historials
-}
-
-@ObjectType()
-export class Historials {
-  @Field()
-  coursed_credits!: number
-
-  @Field()
-  approved_credits!: number
-
-  @Field()
-  reprobed_credits!: number
-
-  @Field()
-  GPA!: number
-
-  @Field()
-  enrollment_id!: number
-
-  @Field()
-  career!: number
+  @Field(type => [Historials])
+  historials!: Historials[]
 }

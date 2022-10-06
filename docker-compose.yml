@@ -1,7 +1,7 @@
 version: "3.8"
 name: "aims"
 services:
-  api-gateway:
+  aims-api-gateway:
     build: .
     image: aims_api_gateway
     container_name: api_gateway
@@ -11,3 +11,5 @@ services:
       - NODE_ENV=development
       - LOG_LEVEL=dev
       - PORT=3000
+      - GRADING_MS_BASE_URL=http://grading-ms:8000/api/v1
+      - PROFILE_MS_BASE_URL=http://profile-ms:4000
